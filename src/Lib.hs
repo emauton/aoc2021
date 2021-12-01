@@ -1,15 +1,11 @@
 module Lib
-    ( day1_1,
-      day1_2,
+    ( day1,
       countIncreases,
       sumWindows
     ) where
 
 readLines :: FilePath -> IO [String]
 readLines = fmap lines . readFile
-
-toInt :: String -> Int
-toInt s = read s
 
 accumulate :: (Int, Int) -> Int -> (Int, Int)
 accumulate (prev, acc) x = if x > prev
@@ -26,15 +22,12 @@ sumWindows xs = do
   else
     (sum (take 3 xs):(sumWindows (tail xs)))
 
-day1_1 :: IO ()
-day1_1 = do
+day1 :: IO ()
+day1 = do
   contents <- readLines "day1_1.txt"
-  let numbers = [toInt l | l <- contents]
-  print (countIncreases numbers)
-
-day1_2 :: IO ()
-day1_2 = do
-  contents <- readLines "day1_1.txt"
-  let numbers = [toInt l | l <- contents]
+  let numbers = [read l :: Int | l <- contents]
   let windows = sumWindows numbers
+  putStrLn "raw increases:"
+  print (countIncreases numbers)
+  putStrLn "windowed increases:"
   print (countIncreases windows)

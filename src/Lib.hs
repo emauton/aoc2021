@@ -1,10 +1,13 @@
 module Lib
-    ( someFunc,
+    ( day1_1,
       countIncreases
     ) where
 
-someFunc :: IO ()
-someFunc = putStrLn "hello aoc2021"
+readLines :: FilePath -> IO [String]
+readLines = fmap lines . readFile
+
+toInt :: String -> Int
+toInt s = read s
 
 accumulate :: (Int, Int) -> Int -> (Int, Int)
 accumulate (prev, acc) x = if x > prev
@@ -13,3 +16,9 @@ accumulate (prev, acc) x = if x > prev
 
 countIncreases :: [Int] -> Int
 countIncreases numbers = snd (foldl accumulate ((head numbers), 0) (tail numbers))
+
+day1_1 :: IO ()
+day1_1 = do
+  contents <- readLines "day1_1.txt"
+  let numbers = [toInt l | l <- contents]
+  print (countIncreases numbers)

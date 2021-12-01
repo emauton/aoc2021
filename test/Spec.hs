@@ -1,5 +1,5 @@
 import Test.Hspec
-import Lib
+import Day1
 
 main :: IO ()
 main = hspec spec

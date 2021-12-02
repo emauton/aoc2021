@@ -6,9 +6,10 @@ import System.Environment
 import qualified Data.Map as Map
 
 import Day1
+import Day2
 
 days :: Map String ([String] -> IO ())
-days = Map.fromList [("1", day1)]
+days = Map.fromList [("1", day1), ("2", day2)]
 
 main :: IO ()
 main = do

@@ -17,6 +17,9 @@ spec = do
   describe "day 2 makeMove" $ do
     it "works on my example" $ do
       makeMove (0, 0) [(pack "forward"), (pack "8")] `shouldBe` (8, 0)
-  describe "day 2 parseDirections" $ do
+  describe "day 2 part 1" $ do
     it "works on AoC example" $ do
-      finalPosition [[(pack "forward"), (pack "5")],[(pack "down"), (pack "5")],[(pack "forward"), (pack "8")],[(pack "up"), (pack "3")],[(pack "down"), (pack "8")],[(pack "forward"), (pack "2")]] `shouldBe` (15, 10)
+      finalPosition [[(pack "forward"), (pack "5")],[(pack "down"), (pack "5")],[(pack "forward"), (pack "8")],[(pack "up"), (pack "3")],[(pack "down"), (pack "8")],[(pack "forward"), (pack "2")]] `shouldBe` (15, 10)  
+  describe "day 2 part 2" $ do
+    it "works on AoC example" $ do
+      finalPosition2 [[(pack "forward"), (pack "5")],[(pack "down"), (pack "5")],[(pack "forward"), (pack "8")],[(pack "up"), (pack "3")],[(pack "down"), (pack "8")],[(pack "forward"), (pack "2")]] `shouldBe` (15, 60, 10)
